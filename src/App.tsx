@@ -1,9 +1,16 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import CreatePage from "./pages/CreatePage";
+import EventCreatedPage from "./pages/EventCreatedPage";
+import ClaimPage from "./pages/ClaimPage";
+import ClaimSuccessPage from "./pages/ClaimSuccessPage";
+import CollectionPage from "./pages/CollectionPage";
+import ConnectPage from "./pages/ConnectPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -16,7 +23,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/create" element={<CreatePage />} />
+          <Route path="/event-created" element={<EventCreatedPage />} />
+          <Route path="/claim" element={<ClaimPage />} />
+          <Route path="/claim-success" element={<ClaimSuccessPage />} />
+          <Route path="/collection" element={<CollectionPage />} />
+          <Route path="/connect" element={<ConnectPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
