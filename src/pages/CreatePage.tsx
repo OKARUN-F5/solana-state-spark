@@ -3,8 +3,16 @@ import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CreateEventForm from '@/components/CreateEventForm';
+import { useRequireWallet } from '@/hooks/useRequireWallet';
 
 const CreatePage = () => {
+  // This will redirect to /connect if no wallet is connected
+  const isWalletConnected = useRequireWallet();
+  
+  if (!isWalletConnected) {
+    return null; // Will redirect via the hook
+  }
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

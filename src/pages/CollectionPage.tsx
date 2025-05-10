@@ -1,11 +1,17 @@
-
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import TokenCard from '@/components/TokenCard';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useRequireWallet } from '@/hooks/useRequireWallet';
+import { useWallet } from '@/contexts/WalletContext';
+import { CheckCircle } from 'lucide-react';
 
 const CollectionPage = () => {
+  // This will redirect to /connect if no wallet is connected
+  const isWalletConnected = useRequireWallet();
+  const { walletName } = useWallet();
+  
   // Demo data - in a real app, this would come from the blockchain
   const [tokens] = useState([
     {
@@ -42,6 +48,10 @@ const CollectionPage = () => {
   
   const claimedTokens = tokens.filter(token => token.claimed);
   const pendingTokens = tokens.filter(token => !token.claimed);
+  
+  if (!isWalletConnected) {
+    return null; // Will redirect via the hook
+  }
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -51,9 +61,18 @@ const CollectionPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl font-bold mb-2 text-center">My cToken Collection</h1>
-            <p className="text-gray-600 mb-8 text-center">
+            <p className="text-gray-600 mb-2 text-center">
               View all your proof-of-participation compressed tokens
             </p>
+            
+            {walletName && (
+              <p className="text-center mb-6">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                  <CheckCircle className="w-4 h-4 mr-1" />
+                  {walletName}
+                </span>
+              </p>
+            )}
             
             <Tabs defaultValue="all" className="w-full mb-8">
               <div className="flex justify-center">
