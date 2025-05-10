@@ -21,7 +21,7 @@ const ConnectPage = () => {
       toast({
         title: "Connected!",
         description: "Your wallet has been successfully connected.",
-        variant: "success",
+        variant: "default", // Changed from "success" to "default"
       });
       navigate('/');
     }, 1500);
