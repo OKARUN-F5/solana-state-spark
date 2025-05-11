@@ -71,30 +71,17 @@ const AboutPage = () => {
                     <Card className="glass-card border-none shadow-lg">
                       <CardHeader className="text-center">
                         <CardTitle className="text-3xl gradient-text">Our Team</CardTitle>
-                        <CardDescription className="text-lg">Meet the builders behind cToken POP</CardDescription>
+                        <CardDescription className="text-lg">Meet the builder behind cToken POP</CardDescription>
                       </CardHeader>
                       <CardContent>
-                        <div className="grid md:grid-cols-2 gap-6">
-                          <TeamMember 
-                            name="Alex Johnson" 
-                            role="Lead Developer"
-                            background="5+ years Solana development experience. Previously built DeFi applications on multiple blockchains."
-                          />
-                          <TeamMember 
-                            name="Samantha Chen" 
-                            role="Product Manager"
-                            background="Event technology specialist with experience at major tech conferences and music festivals."
-                          />
-                          <TeamMember 
-                            name="Marcus Lee" 
-                            role="ZK Compression Expert"
-                            background="Researcher and developer focused on zero-knowledge proofs and Solana compression technology."
-                          />
-                          <TeamMember 
-                            name="Priya Sharma" 
-                            role="UI/UX Designer"
-                            background="Experienced in creating intuitive interfaces for blockchain applications with a focus on accessibility."
-                          />
+                        <div className="flex justify-center">
+                          <div className="w-full max-w-md">
+                            <TeamMember 
+                              name="AYEDUN TENIOLA" 
+                              role="Creator & Developer"
+                              background="Blockchain enthusiast with a passion for creating practical solutions using Solana's innovative technologies. Focused on making ZK Compression accessible for real-world use cases."
+                            />
+                          </div>
                         </div>
                       </CardContent>
                       <SlideNavigation 
@@ -206,36 +193,35 @@ const AboutPage = () => {
                   <SlideContent>
                     <Card className="glass-card border-none shadow-lg">
                       <CardHeader className="text-center">
-                        <CardTitle className="text-3xl gradient-text">Feedback & Validation</CardTitle>
-                        <CardDescription className="text-lg">What we've learned from early users and pilots</CardDescription>
+                        <CardTitle className="text-3xl gradient-text">Initial Feedback</CardTitle>
+                        <CardDescription className="text-lg">Early impressions of our first prototype</CardDescription>
                       </CardHeader>
                       <CardContent>
                         <div className="space-y-8">
                           <div className="space-y-4">
-                            <h3 className="text-xl font-semibold">User Research</h3>
+                            <h3 className="text-xl font-semibold">Early Impressions</h3>
                             <p className="text-muted-foreground">
-                              We've talked to 25+ event organizers and 100+ event attendees across different industries to understand their needs and pain points.
+                              This is our first prototype, and we've received initial feedback from two early viewers to help guide our development.
                             </p>
                           </div>
                           
                           <div className="grid md:grid-cols-2 gap-6">
                             <FeedbackCard
-                              type="Event Organizer"
-                              quote="The QR code distribution is exactly what we needed. So much simpler than explaining crypto wallets to our attendees."
-                              source="Tech Conference Director"
+                              type="Crypto Enthusiast"
+                              quote="The concept is exciting - proof-of-participation tokens could be huge for the Solana ecosystem. I'd love to see more examples of real use cases on the landing page."
+                              source="Anonymous Reviewer"
                             />
                             <FeedbackCard
-                              type="Attendee"
-                              quote="I love being able to collect tokens from events I attend and having them all in one place I can share with others."
-                              source="Hackathon Participant"
+                              type="Software Engineer"
+                              quote="The UI is clean and intuitive. Consider adding more visual cues for the QR scanning process to make it even more user-friendly for non-crypto users."
+                              source="Technical Reviewer"
                             />
                           </div>
                           
                           <div className="space-y-4">
-                            <h3 className="text-xl font-semibold">Pilot Results</h3>
+                            <h3 className="text-xl font-semibold">Next Steps</h3>
                             <p className="text-muted-foreground">
-                              Our pilot at a recent blockchain hackathon saw 98% of attendees successfully claim their tokens, 
-                              with 78% reporting they would be more likely to attend future events that offered verifiable credentials.
+                              We're planning more comprehensive user research and testing as we move beyond this initial prototype stage. We welcome feedback from the community as we refine our product.
                             </p>
                           </div>
                         </div>
@@ -324,24 +310,9 @@ const AboutPage = () => {
                         <h3 className="text-xl font-bold gradient-text">Our Team</h3>
                         <div className="space-y-4">
                           <TeamMember 
-                            name="Alex Johnson" 
-                            role="Lead Developer"
-                            background="5+ years Solana development experience. Previously built DeFi applications on multiple blockchains."
-                          />
-                          <TeamMember 
-                            name="Samantha Chen" 
-                            role="Product Manager"
-                            background="Event technology specialist with experience at major tech conferences and music festivals."
-                          />
-                          <TeamMember 
-                            name="Marcus Lee" 
-                            role="ZK Compression Expert"
-                            background="Researcher and developer focused on zero-knowledge proofs and Solana compression technology."
-                          />
-                          <TeamMember 
-                            name="Priya Sharma" 
-                            role="UI/UX Designer"
-                            background="Experienced in creating intuitive interfaces for blockchain applications with a focus on accessibility."
+                            name="AYEDUN TENIOLA" 
+                            role="Creator & Developer"
+                            background="Blockchain enthusiast with a passion for creating practical solutions using Solana's innovative technologies. Focused on making ZK Compression accessible for real-world use cases."
                           />
                         </div>
                       </div>
@@ -385,19 +356,21 @@ const AboutPage = () => {
                     
                     {section.id === "feedback" && (
                       <div className="space-y-6">
-                        <h3 className="text-xl font-bold gradient-text">Feedback & Validation</h3>
+                        <h3 className="text-xl font-bold gradient-text">Initial Feedback</h3>
                         <div className="space-y-4">
                           <p className="text-muted-foreground">
-                            We've talked to 25+ event organizers and 100+ attendees across different industries.
+                            This is our first prototype, and we've received initial impressions from two early viewers.
                           </p>
                           <FeedbackCard
-                            type="Event Organizer"
-                            quote="The QR code distribution is exactly what we needed. So much simpler than explaining crypto wallets."
-                            source="Tech Conference Director"
+                            type="Crypto Enthusiast"
+                            quote="The concept is exciting - proof-of-participation tokens could be huge for the Solana ecosystem. I'd love to see more examples of real use cases."
+                            source="Anonymous Reviewer"
                           />
-                          <p className="text-muted-foreground">
-                            Our pilot saw 98% of attendees successfully claim their tokens, with high satisfaction rates.
-                          </p>
+                          <FeedbackCard
+                            type="Software Engineer"
+                            quote="The UI is clean and intuitive. Consider adding more visual cues for the QR scanning process for non-crypto users."
+                            source="Technical Reviewer"
+                          />
                         </div>
                       </div>
                     )}
