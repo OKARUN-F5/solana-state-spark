@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -67,7 +66,7 @@ const AboutPage = () => {
             
             <div className="relative min-h-[400px] md:min-h-[500px]">
               <AnimatePresence mode="wait">
-                <TabsContent value="team" className="absolute w-full mt-0">
+                <TabsContent key="team-content" value="team" className="absolute w-full mt-0">
                   <SlideContent>
                     <Card className="glass-card border-none shadow-lg">
                       <CardHeader className="text-center">
@@ -108,7 +107,7 @@ const AboutPage = () => {
                   </SlideContent>
                 </TabsContent>
                 
-                <TabsContent value="why" className="absolute w-full mt-0">
+                <TabsContent key="why-content" value="why" className="absolute w-full mt-0">
                   <SlideContent>
                     <Card className="glass-card border-none shadow-lg">
                       <CardHeader className="text-center">
@@ -153,7 +152,7 @@ const AboutPage = () => {
                   </SlideContent>
                 </TabsContent>
                 
-                <TabsContent value="market" className="absolute w-full mt-0">
+                <TabsContent key="market-content" value="market" className="absolute w-full mt-0">
                   <SlideContent>
                     <Card className="glass-card border-none shadow-lg">
                       <CardHeader className="text-center">
@@ -203,7 +202,7 @@ const AboutPage = () => {
                   </SlideContent>
                 </TabsContent>
                 
-                <TabsContent value="feedback" className="absolute w-full mt-0">
+                <TabsContent key="feedback-content" value="feedback" className="absolute w-full mt-0">
                   <SlideContent>
                     <Card className="glass-card border-none shadow-lg">
                       <CardHeader className="text-center">
@@ -251,7 +250,7 @@ const AboutPage = () => {
                   </SlideContent>
                 </TabsContent>
                 
-                <TabsContent value="vision" className="absolute w-full mt-0">
+                <TabsContent key="vision-content" value="vision" className="absolute w-full mt-0">
                   <SlideContent>
                     <Card className="glass-card border-none shadow-lg">
                       <CardHeader className="text-center">
@@ -320,107 +319,104 @@ const AboutPage = () => {
                 
                 {activeSection === section.id && (
                   <div className="bg-background p-4 border border-border rounded-b-lg">
-                    <TabsContent value={section.id} forceMount={true}>
-                      {/* We'll reuse the same content from desktop but with different styling */}
-                      {section.id === "team" && (
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-bold gradient-text">Our Team</h3>
-                          <div className="space-y-4">
-                            <TeamMember 
-                              name="Alex Johnson" 
-                              role="Lead Developer"
-                              background="5+ years Solana development experience. Previously built DeFi applications on multiple blockchains."
-                            />
-                            <TeamMember 
-                              name="Samantha Chen" 
-                              role="Product Manager"
-                              background="Event technology specialist with experience at major tech conferences and music festivals."
-                            />
-                            <TeamMember 
-                              name="Marcus Lee" 
-                              role="ZK Compression Expert"
-                              background="Researcher and developer focused on zero-knowledge proofs and Solana compression technology."
-                            />
-                            <TeamMember 
-                              name="Priya Sharma" 
-                              role="UI/UX Designer"
-                              background="Experienced in creating intuitive interfaces for blockchain applications with a focus on accessibility."
-                            />
-                          </div>
+                    {section.id === "team" && (
+                      <div className="space-y-6">
+                        <h3 className="text-xl font-bold gradient-text">Our Team</h3>
+                        <div className="space-y-4">
+                          <TeamMember 
+                            name="Alex Johnson" 
+                            role="Lead Developer"
+                            background="5+ years Solana development experience. Previously built DeFi applications on multiple blockchains."
+                          />
+                          <TeamMember 
+                            name="Samantha Chen" 
+                            role="Product Manager"
+                            background="Event technology specialist with experience at major tech conferences and music festivals."
+                          />
+                          <TeamMember 
+                            name="Marcus Lee" 
+                            role="ZK Compression Expert"
+                            background="Researcher and developer focused on zero-knowledge proofs and Solana compression technology."
+                          />
+                          <TeamMember 
+                            name="Priya Sharma" 
+                            role="UI/UX Designer"
+                            background="Experienced in creating intuitive interfaces for blockchain applications with a focus on accessibility."
+                          />
                         </div>
-                      )}
-                      
-                      {section.id === "why" && (
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-bold gradient-text">Why We Started Building</h3>
-                          <div className="space-y-4">
-                            <p className="text-muted-foreground">
-                              Traditional event credentialing is cumbersome, expensive, and lacks verifiability. 
-                              Blockchain offers powerful verification, but traditional NFTs are too expensive for mass events.
-                            </p>
-                            <p className="text-muted-foreground">
-                              We leverage Solana's ZK Compression to reduce minting costs by up to 5000x while maintaining 
-                              all the benefits of on-chain verification.
-                            </p>
-                          </div>
+                      </div>
+                    )}
+                    
+                    {section.id === "why" && (
+                      <div className="space-y-6">
+                        <h3 className="text-xl font-bold gradient-text">Why We Started Building</h3>
+                        <div className="space-y-4">
+                          <p className="text-muted-foreground">
+                            Traditional event credentialing is cumbersome, expensive, and lacks verifiability. 
+                            Blockchain offers powerful verification, but traditional NFTs are too expensive for mass events.
+                          </p>
+                          <p className="text-muted-foreground">
+                            We leverage Solana's ZK Compression to reduce minting costs by up to 5000x while maintaining 
+                            all the benefits of on-chain verification.
+                          </p>
                         </div>
-                      )}
-                      
-                      {section.id === "market" && (
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-bold gradient-text">Market Size & Opportunity</h3>
-                          <div className="space-y-4">
-                            <MarketSegment
-                              title="Tech Conferences"
-                              description="Over 10,000 tech conferences annually with 50M+ attendees worldwide."
-                            />
-                            <MarketSegment
-                              title="Hackathons"
-                              description="5,000+ hackathons yearly with participants wanting verifiable proof."
-                            />
-                            <p className="text-muted-foreground">
-                              We're starting with tech events and expanding to education, certification, 
-                              and cultural events over time.
-                            </p>
-                          </div>
+                      </div>
+                    )}
+                    
+                    {section.id === "market" && (
+                      <div className="space-y-6">
+                        <h3 className="text-xl font-bold gradient-text">Market Size & Opportunity</h3>
+                        <div className="space-y-4">
+                          <MarketSegment
+                            title="Tech Conferences"
+                            description="Over 10,000 tech conferences annually with 50M+ attendees worldwide."
+                          />
+                          <MarketSegment
+                            title="Hackathons"
+                            description="5,000+ hackathons yearly with participants wanting verifiable proof."
+                          />
+                          <p className="text-muted-foreground">
+                            We're starting with tech events and expanding to education, certification, 
+                            and cultural events over time.
+                          </p>
                         </div>
-                      )}
-                      
-                      {section.id === "feedback" && (
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-bold gradient-text">Feedback & Validation</h3>
-                          <div className="space-y-4">
-                            <p className="text-muted-foreground">
-                              We've talked to 25+ event organizers and 100+ attendees across different industries.
-                            </p>
-                            <FeedbackCard
-                              type="Event Organizer"
-                              quote="The QR code distribution is exactly what we needed. So much simpler than explaining crypto wallets."
-                              source="Tech Conference Director"
-                            />
-                            <p className="text-muted-foreground">
-                              Our pilot saw 98% of attendees successfully claim their tokens, with high satisfaction rates.
-                            </p>
-                          </div>
+                      </div>
+                    )}
+                    
+                    {section.id === "feedback" && (
+                      <div className="space-y-6">
+                        <h3 className="text-xl font-bold gradient-text">Feedback & Validation</h3>
+                        <div className="space-y-4">
+                          <p className="text-muted-foreground">
+                            We've talked to 25+ event organizers and 100+ attendees across different industries.
+                          </p>
+                          <FeedbackCard
+                            type="Event Organizer"
+                            quote="The QR code distribution is exactly what we needed. So much simpler than explaining crypto wallets."
+                            source="Tech Conference Director"
+                          />
+                          <p className="text-muted-foreground">
+                            Our pilot saw 98% of attendees successfully claim their tokens, with high satisfaction rates.
+                          </p>
                         </div>
-                      )}
-                      
-                      {section.id === "vision" && (
-                        <div className="space-y-6">
-                          <h3 className="text-xl font-bold gradient-text">Our Big Vision</h3>
-                          <div className="space-y-4">
-                            <p className="text-muted-foreground">
-                              We're building a scalable, affordable infrastructure for proof-of-participation
-                              that will become the standard for verifiable event credentials.
-                            </p>
-                            <p className="font-medium">
-                              Long-term: "The LinkedIn for IRL experiences" - where your attendance across all types 
-                              of events forms your verifiable experience graph.
-                            </p>
-                          </div>
+                      </div>
+                    )}
+                    
+                    {section.id === "vision" && (
+                      <div className="space-y-6">
+                        <h3 className="text-xl font-bold gradient-text">Our Big Vision</h3>
+                        <div className="space-y-4">
+                          <p className="text-muted-foreground">
+                            We're building a scalable, affordable infrastructure for proof-of-participation
+                            that will become the standard for verifiable event credentials.
+                          </p>
+                          <p className="font-medium">
+                            Long-term: "The LinkedIn for IRL experiences" - where your attendance across all types 
+                            of events forms your verifiable experience graph.
+                          </p>
                         </div>
-                      )}
-                    </TabsContent>
+                      </div>
+                    )}
                   </div>
                 )}
               </div>
