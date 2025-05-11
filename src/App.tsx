@@ -13,6 +13,7 @@ import ClaimSuccessPage from "./pages/ClaimSuccessPage";
 import CollectionPage from "./pages/CollectionPage";
 import ConnectPage from "./pages/ConnectPage";
 import LogoDownloadPage from "./pages/LogoDownloadPage";
+import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/collection" element={<CollectionPage />} />
             <Route path="/connect" element={<ConnectPage />} />
             <Route path="/logo-download" element={<LogoDownloadPage />} />
+            <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

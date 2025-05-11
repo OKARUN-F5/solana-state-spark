@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Download } from "lucide-react";
+import { Menu, Download, Users } from "lucide-react";
 import WalletButton from './WalletButton';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Logo from './Logo';
@@ -31,6 +31,10 @@ export function Header() {
               </SheetTrigger>
               <SheetContent>
                 <div className="flex flex-col space-y-4 mt-8">
+                  <Button variant="ghost" onClick={() => navigate('/about')} className="justify-start">
+                    <Users className="mr-2 h-4 w-4" />
+                    About Us
+                  </Button>
                   <Button variant="ghost" onClick={() => navigate('/create')} className="justify-start">Create Event</Button>
                   <Button variant="ghost" onClick={() => navigate('/claim')} className="justify-start">Claim Token</Button>
                   <Button variant="ghost" onClick={() => navigate('/collection')} className="justify-start">My Collection</Button>
@@ -42,6 +46,10 @@ export function Header() {
         ) : (
           <>
             <nav className="hidden md:flex items-center gap-6">
+              <Button variant="ghost" onClick={() => navigate('/about')}>
+                <Users className="mr-2 h-4 w-4" />
+                About Us
+              </Button>
               <Button variant="ghost" onClick={() => navigate('/create')}>Create Event</Button>
               <Button variant="ghost" onClick={() => navigate('/claim')}>Claim Token</Button>
               <Button variant="ghost" onClick={() => navigate('/collection')}>My Collection</Button>
